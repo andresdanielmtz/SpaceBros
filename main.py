@@ -2,7 +2,7 @@ from tabnanny import check
 from numpy import character
 import pygame, sys
 from settings import *
-from level import Level, checkCollision 
+from level import Level, checkCollision
 from menu.button2 import Button
 
 bg = pygame.image.load('graphics/space.png')
@@ -14,7 +14,7 @@ qr = pygame.transform.scale(qr, (1450, 900))
 #setup
 pygame.init() # also starts pygame font 
 
-def get_font(size): # Returns Press-Start-2P in the desired size
+def get_font(size): 
     return pygame.font.Font("menu/font.ttf", size)
 my_font = pygame.font.SysFont('Comic Sans MS', 30)
 
