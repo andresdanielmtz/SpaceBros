@@ -10,7 +10,7 @@ bg = pygame.transform.scale(bg, (1500, 1500)) # arbitrary parameters
 bg_menu = pygame.image.load('graphics/main.png')
 bg_menu = pygame.transform.scale(bg_menu, (1450,1450))
 qr = pygame.image.load("graphics/space_craft_bus.png")
-qr = pygame.transform.scale(qr, (1450, 900))
+qr = pygame.transform.scale(qr, (1450, 900)) 
 #setup
 pygame.init() # also starts pygame font 
 
@@ -21,7 +21,7 @@ my_font = pygame.font.SysFont('Comic Sans MS', 30)
 d_width = 1450
 d_height = 900 
 
-pygame.display.set_caption('Space Bros. & Sisters')
+pygame.display.set_caption('The Webb Interactive Project')
 screen = pygame.display.set_mode((d_width,d_height))
 clock = pygame.time.Clock()
 level = Level(level_map,screen)
@@ -81,7 +81,7 @@ while True:
             pygame.quit()
             sys.exit()
     if x == "game": 
-        text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
+        # text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
         # score = my_font.render('Score: '+str(level.value_score), False, (255, 255, 255))
         
         screen.fill('black')
@@ -92,9 +92,5 @@ while True:
         level.run()
         if level.state: 
             screen.blit(qr, (0,0) )
-        '''if level.state: 
-            screen.blit()
-            print("IT IS WORKING GUYSSS")'''
-
     pygame.display.update()
     clock.tick(60)  

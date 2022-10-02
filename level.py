@@ -1,3 +1,4 @@
+from email.errors import StartBoundaryNotFoundDefect
 from multiprocessing import Barrier
 from re import X
 import pygame
@@ -6,15 +7,7 @@ from tiles import Tile
 from collectible import Collectible
 from barrier import Barrier
 from end import End_Block 
-from telescope.p1 import PrimaryMirror
-from telescope.p2 import SecondaryMirror
-from telescope.p3 import * 
-from telescope.p4 import * 
-from telescope.p5 import * 
-from telescope.p6 import * 
-from telescope.p7 import * 
-from telescope.p8 import * 
-from telescope.p9 import * 
+from telescope.p1 import PrimaryMirror, SecondaryMirror, Sunshield, ISIM, MTT, SpaceCraft, SolarPanel, HighGainAntenna, StarTracker
 from settings import tile_size, dsp_width, dsp_height
 import asyncio 
 import sys 
@@ -52,7 +45,15 @@ class Level:
         self.final = pygame.sprite.Group() 
         
         self.f = pygame.sprite.GroupSingle() # p1 
-
+        self.s = pygame.sprite.GroupSingle() # p2
+        self.t = pygame.sprite.GroupSingle() # p3 
+        self.fo = pygame.sprite.GroupSingle() # p4 
+        self.fi = pygame.sprite.GroupSingle() # p5 
+        self.si = pygame.sprite.GroupSingle() # p6 
+        self.se = pygame.sprite.GroupSingle() # p7 
+        self.ei = pygame.sprite.GroupSingle() # p8 
+        self.ni = pygame.sprite.GroupSingle() # p9 
+    
         self.primary = pygame.sprite.Group()
 
 
@@ -75,30 +76,36 @@ class Level:
                 if cell == "f":
                     f_block = End_Block((x,y), tile_size)
                     self.final.add(f_block) # :D
+
+
                 if cell == "H":
                     hana = PrimaryMirror((x,y))
                     self.f.add(hana) # :D
                 if cell == "D": 
-                    dul = SecondaryMirror((x,y), tile_size)
-                    self.collectible.add(dul)
+                    dul = SecondaryMirror((x,y))
+                    self.s.add(dul)
+                if cell == "W":
+                    tracker = Sunshield((x,y))
+                    self.t.add(tracker)
                 if cell == "S":
-                    ses = Collectible((x,y), tile_size)
-                    self.collectible.add(ses)
+                    ses = ISIM((x,y))
+                    self.fo.add(ses)
                 if cell == "N":
-                    net = Collectible((x,y), tile_size)
-                    self.collectible.add(net)
+                    net = MTT((x,y))
+                    self.fi.add(net)
                 if cell == "Y":
-                    yeoseot = Collectible((x,y), tile_size)
-                    self.collectible.add(yeoseot)
+                    yeoseot = SpaceCraft((x,y))
+                    self.si.add(yeoseot)
                 if cell == "A":
-                    daseot = Collectible((x,y), tile_size)
-                    self.collectible.add(daseot)
+                    daseot = SolarPanel((x,y))
+                    self.se.add(daseot)
                 if cell == "I":
-                    ilgob = Collectible((x,y), tile_size)
-                    self.collectible.add(ilgob) # 7th one 
-                #if cell == "Q":
-                    #quarter = 
-    
+                    ilgob = HighGainAntenna((x,y))
+                    self.ei.add(ilgob) # 7th one 
+                if cell == "Q":
+                    quarter = StarTracker((x,y))
+                    self.ni.add(quarter)
+
     def scroll_x(self):
         player = self.player.sprite
         player_x = player.rect.centerx
@@ -208,6 +215,24 @@ class Level:
         #Casillas De Nivel
         self.f.update(self.world_shift)
         self.f.draw(self.display_surface)
+        self.s.update(self.world_shift)
+        self.s.draw(self.display_surface)
+        self.t.update(self.world_shift)
+        self.t.draw(self.display_surface)
+        self.fo.update(self.world_shift)
+        self.fo.draw(self.display_surface)
+        self.fi.update(self.world_shift)
+        self.fi.draw(self.display_surface)
+        self.s.update(self.world_shift)
+        self.s.draw(self.display_surface)
+        self.se.update(self.world_shift)
+        self.se.draw(self.display_surface)
+        self.ei.update(self.world_shift)
+        self.ei.draw(self.display_surface)
+        self.ni.update(self.world_shift)
+        self.ni.draw(self.display_surface)
+        
+
         
         self.collectible.update(self.world_shift)
         self.collectible.draw(self.display_surface)

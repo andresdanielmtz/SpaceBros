@@ -1,19 +1,21 @@
 level_map = [  
-'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',
-'O                H                                                                                          O',
-'O                                                                                                           O',
-'O                                                                                                           O',
-'O                                                                                                           O',
-'O                                         S                 Y                                               O',
-'O                                         xxvx               xx   v            x                     ffff   O',
-'O                                                     D                   xx                       x        O',
-'O                         xxxx                         xx                                  x                O',
-'O    P       xxxxx                       N                                                        x         O',
-'O  xxxxx                                 xx                                                                 O',
-'O                                                                                                           O',
-'O                                                                                                           O',
-'O                                                                                                           O',
-'Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' ]
+'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',
+'O                H                    D         W      S              N                                                         O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'O                                                           Y                                                             O',
+'O                                         xxvx               xx   v            xx                                   ffff   O',
+'O                                                                         xx                 x     xx               x        O',
+'O    P                x     xxxx                         xx                              xxx                  x                O',
+'O  xxxxx  x   xxxxx                                                                                              x         O',
+'O                                        xx                                                                               O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'O                                                                                                                         O',
+'Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' ]
 
 tile_size = 84
 dsp_width = 1280
