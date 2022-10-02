@@ -8,12 +8,12 @@ level_map = [
 'O                                     xxvx         O',
 'O                                                  O',
 'O                                                  O',
-'O             vvvvv                                O',
+'O    P        vvvvv                                O',
 'O  xxxxx                            xx             O',
 'O                                xxxxxxxx          O',
 'O                            xxxxxxxxxxxxxxx       O',
-'O    xxxxxxx  P         xxxxxxxxxxxxxxxxxxxxxxx    O',
-'Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    O' ]
+'O    xxxxxxx            xxxxxxxxxxxxxxxxxxxxxxx    O',
+'OxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO' ]
 
 tile_size = 84
 dsp_width = 1280

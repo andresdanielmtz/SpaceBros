@@ -45,9 +45,10 @@ class Player(pygame.sprite.Sprite):
         print("x:",self.rect.x) 
         print("y:",self.rect.y)
 
-        #if self.rect.y >= 924:
-            #self.rect.y = 690
-            #self.rect.x = 335 
+        # 680 
+        if self.rect.y >= 924:
+            self.rect.y = 20
+            self.rect.x = 332 
         # x = 332
         # y = 680 
         
