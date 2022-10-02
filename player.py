@@ -42,8 +42,8 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         self.direction.y = self.jump_speed
     def update(self):
-        print("x:",self.rect.x) 
-        print("y:",self.rect.y)
+        #print("x:",self.rect.x) 
+        #print("y:",self.rect.y)
 
         # 680 
         if self.rect.y >= 924:
