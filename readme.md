@@ -4,6 +4,7 @@ This is a project designed to compete in the **2022 NASA International Space App
 
 To run this project do:
 ```cmd
-python3 main.py```
+python3 main.py
+```
 
 Enjoy! 
