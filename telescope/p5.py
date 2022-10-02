@@ -1,7 +1,7 @@
 import pygame 
 
 #primary mirror 
-class PrimaryMirror(pygame.sprite.Sprite):
+class MTT(pygame.sprite.Sprite):
     def __init__(self,pos,size):
         super().__init__()
         self.image = pygame.Surface((size,size))

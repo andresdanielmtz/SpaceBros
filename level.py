@@ -7,6 +7,14 @@ from collectible import Collectible
 from barrier import Barrier
 from end import End_Block 
 from telescope.p1 import PrimaryMirror
+from telescope.p2 import * 
+from telescope.p3 import * 
+from telescope.p4 import * 
+from telescope.p5 import * 
+from telescope.p6 import * 
+from telescope.p7 import * 
+from telescope.p8 import * 
+from telescope.p9 import * 
 from settings import tile_size, dsp_width, dsp_height
 import asyncio 
 import sys 
@@ -43,6 +51,8 @@ class Level:
         self.barrier = pygame.sprite.Group()
         self.final = pygame.sprite.Group() 
         
+        self.f = pygame.sprite.GroupSingle() # p1 
+
         self.primary = pygame.sprite.Group()
 
 
@@ -205,6 +215,9 @@ class Level:
         self.barrier.draw(self.display_surface)
         self.final.update(self.world_shift)
         self.final.draw(self.display_surface)
+
+        self.f.update(self.world_shift)
+        self.f.draw(self.display_surface)
         self.scroll_x()
         #Jugador
         self.player.update()
