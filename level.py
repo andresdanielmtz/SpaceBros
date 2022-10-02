@@ -1,8 +1,10 @@
+from multiprocessing import Barrier
 from re import X
 import pygame
 from player import Player
 from tiles import Tile
 from collectible import Collectible
+from barrier import Barrier
 from settings import tile_size, dsp_width, dsp_height
 import asyncio 
 
@@ -29,6 +31,8 @@ class Level:
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.collectible = pygame.sprite.Group()
+        self.barrier = pygame.sprite.Group()
+
         for row_index,row in enumerate(layout):
             for col_index,cell in enumerate(row):
                 x = col_index * tile_size
@@ -42,6 +46,9 @@ class Level:
                 if cell == "v":
                     special = Collectible((x,y), tile_size)
                     self.collectible.add(special)
+                if cell == "O":
+                    barrera = Barrier((x,y), tile_size )
+                    self.barrier.add(barrera)
     
     def scroll_x(self):
         player = self.player.sprite
