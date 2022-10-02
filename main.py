@@ -15,8 +15,11 @@ pygame.init() # also starts pygame font
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("menu/font.ttf", size)
 
+d_width = 1450
+d_height = 900 
+
 pygame.display.set_caption('Space Bros. & Sisters')
-screen = pygame.display.set_mode((1450,900))
+screen = pygame.display.set_mode((d_width,d_height))
 clock = pygame.time.Clock()
 level = Level(level_map,screen)
 value_score = 0 
@@ -39,11 +42,11 @@ def main_menu():
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
         MENU_TEXT = get_font(50).render("JAMES WEBB TELESCOPE", True, "#d7fcd4")
-        MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
+        MENU_RECT = MENU_TEXT.get_rect(center=((d_width / 2), 100))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("menu/Play Rect.png"), pos=(640, 425), 
+        PLAY_BUTTON = Button(image=pygame.image.load("menu/Play Rect.png"), pos=((d_width / 2), 425), 
                             text_input="PLAY", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("menu/Quit Rect.png"), pos=(640, 550), 
+        QUIT_BUTTON = Button(image=pygame.image.load("menu/Quit Rect.png"), pos=((d_width / 2), 550), 
                             text_input="QUIT", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
         # reference = Button(image=pygame.image.load("menu/options2.png"), pos=(640, 400),
                             # text_input="Settings", font=get_font(30), base_color = "#d7fcd4", hovering_color="White" )
@@ -77,12 +80,13 @@ while True:
     if x == "game": 
         my_font = pygame.font.SysFont('Comic Sans MS', 30)
         text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
-        score = my_font.render('Score: '+str(level.value_score), False, (255, 255, 255))
+        # score = my_font.render('Score: '+str(level.value_score), False, (255, 255, 255))
         
         screen.fill('black')
         screen.blit(bg, (0,0)) 
         # screen.blit(text_surface, (0,0))
-        screen.blit(score,((dsp_width/2), 0))
+        # screen.blit(score,((dsp_width/2), 0))
+        screen.blit(level.score,((dsp_width/2), 890))
         level.run()
 
     pygame.display.update()
