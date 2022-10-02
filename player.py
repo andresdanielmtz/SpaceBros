@@ -25,7 +25,7 @@ class AnimatedSpriteObject(pygame.sprite.Sprite):
         if self.rect.right < 0:
             self.rect.left = pygame.display.get_surface().get_width()
 
-lst = ["REAL/graphics/sprites/player/idle/1.png", "REAL/graphics/sprites/player/idle/2.png", "REAL/graphics/sprites/player/idle/3.png", "REAL/graphics/sprites/player/idle/4.png", "REAL/graphics/sprites/player/idle/5.png", "REAL/graphics/sprites/player/idle/6.png"]
+lst = ["graphics/sprites/player/idle/1.png", "graphics/sprites/player/idle/2.png", "graphics/sprites/player/idle/3.png", "graphics/sprites/player/idle/4.png", "graphics/sprites/player/idle/5.png", "graphics/sprites/player/idle/6.png"]
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
@@ -48,11 +48,11 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 1
             
             self.image = pygame.Surface((32,64))
-            self.image = pygame.image.load("REAL/graphics/sprites/player/placeholders/Astronaut_Run.png")
+            self.image = pygame.image.load("graphics/sprites/player/placeholders/Astronaut_Run.png")
         elif keys[pygame.K_LEFT]:
             self.direction.x = -1
             self.image = pygame.Surface((32,64))
-            self.image = pygame.image.load("REAL/graphics/sprites/player/placeholders/astro.png")
+            self.image = pygame.image.load("graphics/sprites/player/placeholders/astro.png")
         else:
             self.direction.x = 0
 

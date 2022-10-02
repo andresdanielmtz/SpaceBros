@@ -5,7 +5,7 @@ from settings import *
 from level import Level, checkCollision 
 
 
-bg = pygame.image.load('REAL/graphics/space.png')
+bg = pygame.image.load('graphics/space.png')
 bg = pygame.transform.scale(bg, (1500, 1500)) # arbitrary parameters 
 
 #Setup principal
