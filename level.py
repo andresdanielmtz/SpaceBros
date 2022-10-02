@@ -6,6 +6,7 @@ from tiles import Tile
 from collectible import Collectible
 from barrier import Barrier
 from end import End_Block 
+from telescope.p1 import PrimaryMirror
 from settings import tile_size, dsp_width, dsp_height
 import asyncio 
 import sys 
@@ -34,7 +35,7 @@ class Level:
         self.world_shift = 0
         self.value_score = 0
         self.score = my_font.render('ALGO ASI', False, (255, 255, 255))
-
+        self.state = False 
     def setup_level(self,layout):
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
@@ -42,6 +43,9 @@ class Level:
         self.barrier = pygame.sprite.Group()
         self.final = pygame.sprite.Group() 
         
+        self.primary = pygame.sprite.Group()
+
+
         for row_index,row in enumerate(layout):
             for col_index,cell in enumerate(row):
                 x = col_index * tile_size
@@ -62,8 +66,8 @@ class Level:
                     f_block = End_Block((x,y), tile_size)
                     self.final.add(f_block) # :D
                 if cell == "H":
-                    hana = Collectible((x,y), tile_size)
-                    self.collectible.add(hana)
+                    hana = PrimaryMirror((x,y), tile_size)
+                    self.primary.add(hana) # :D
                 if cell == "D": 
                     dul = Collectible((x,y), tile_size)
                     self.collectible.add(dul)
@@ -81,8 +85,9 @@ class Level:
                     self.collectible.add(daseot)
                 if cell == "I":
                     ilgob = Collectible((x,y), tile_size)
-                    self.collectible.add(ilgob)
-                
+                    self.collectible.add(ilgob) # 7th one 
+                #if cell == "Q":
+                    #quarter = 
     
     def scroll_x(self):
         player = self.player.sprite
@@ -148,6 +153,7 @@ class Level:
                 if player.direction.y > 0 :
                     player.rect.bottom = sprite.rect.top
                     player.direction.y = 0
+                    
 
 
 
@@ -169,6 +175,8 @@ class Level:
                     #pygame.quit()
                     #sys.exit()
                 #print(value)
+                self.state = True
+                print("it is... up here")
         for sprite in self.barrier.sprites():
             if sprite.rect.colliderect(player.rect):
                 if player.direction.y > 0 :
