@@ -1,30 +1,6 @@
 import pygame
 from PIL import Image, ImageSequence
 
-def loadGIF(filename):
-    pilImage = Image.open(filename)
-    frames = []
-    for frame in ImageSequence.Iterator(pilImage):
-        frame = frame.convert('RGBA')
-        pygameImage = pygame.image.fromstring(
-            frame.tobytes(), frame.size, frame.mode).convert_alpha()
-        frames.append(pygameImage)
-    return frames
-
-class AnimatedSpriteObject(pygame.sprite.Sprite):
-    def __init__(self, x, bottom, images):
-        pygame.sprite.Sprite.__init__(self)
-        self.images = images
-        self.image = self.images[0]
-        self.rect = self.image.get_rect(midbottom = (x, bottom))
-        self.image_index = 0
-    def update(self):
-        self.image_index += 1
-        self.image = self.images[self.image_index % len(self.images)]
-        self.rect.x -= 5
-        if self.rect.right < 0:
-            self.rect.left = pygame.display.get_surface().get_width()
-
 lst = ["graphics/sprites/player/idle/1.png", "graphics/sprites/player/idle/2.png", "graphics/sprites/player/idle/3.png", "graphics/sprites/player/idle/4.png", "graphics/sprites/player/idle/5.png", "graphics/sprites/player/idle/6.png"]
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
@@ -66,4 +42,14 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         self.direction.y = self.jump_speed
     def update(self):
+        print("x:",self.rect.x) 
+        print("y:",self.rect.y)
+
+        #if self.rect.y >= 924:
+            #self.rect.y = 690
+            #self.rect.x = 335 
+        # x = 332
+        # y = 680 
+        
+        #924 should be y limit 
         self.get_input()

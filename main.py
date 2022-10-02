@@ -8,7 +8,7 @@ bg = pygame.image.load('graphics/space.png')
 bg = pygame.transform.scale(bg, (1500, 1500)) # arbitrary parameters 
 
 bg_menu = pygame.image.load('graphics/main.png')
-bg_menu = pygame.transform.scale(bg_menu, (1300,1300))
+bg_menu = pygame.transform.scale(bg_menu, (1450,1450))
 #setup
 pygame.init() # also starts pygame font 
 
@@ -16,7 +16,7 @@ def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("menu/font.ttf", size)
 
 pygame.display.set_caption('Space Bros. & Sisters')
-screen = pygame.display.set_mode((dsp_width,dsp_height))
+screen = pygame.display.set_mode((1450,900))
 clock = pygame.time.Clock()
 level = Level(level_map,screen)
 value_score = 0 
@@ -41,12 +41,14 @@ def main_menu():
         MENU_TEXT = get_font(50).render("JAMES WEBB TELESCOPE", True, "#d7fcd4")
         MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("menu/Play Rect.png"), pos=(640, 350), 
+        PLAY_BUTTON = Button(image=pygame.image.load("menu/Play Rect.png"), pos=(640, 425), 
                             text_input="PLAY", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("menu/Quit Rect.png"), pos=(640, 550), 
                             text_input="QUIT", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
-        reference = Button(image=pygame.image.load("menu/options2.png"), pos=(640, 400),
-                            text_input="Settings", font=get_font(30), base_color = "#d7fcd4", hovering_color="White" )
+        # reference = Button(image=pygame.image.load("menu/options2.png"), pos=(640, 400),
+                            # text_input="Settings", font=get_font(30), base_color = "#d7fcd4", hovering_color="White" )
+        
+
         screen.blit(MENU_TEXT, MENU_RECT)
 
         for button in [PLAY_BUTTON, QUIT_BUTTON]:
@@ -75,7 +77,7 @@ while True:
     if x == "game": 
         my_font = pygame.font.SysFont('Comic Sans MS', 30)
         text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
-        score = my_font.render('Score:'+str(level.value_score), False, (255, 255, 255))
+        score = my_font.render('Score: '+str(level.value_score), False, (255, 255, 255))
         
         screen.fill('black')
         screen.blit(bg, (0,0)) 
@@ -84,4 +86,4 @@ while True:
         level.run()
 
     pygame.display.update()
-    clock.tick(60) 
+    clock.tick(60)  
