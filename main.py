@@ -16,6 +16,7 @@ pygame.init() # also starts pygame font
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("menu/font.ttf", size)
+my_font = pygame.font.SysFont('Comic Sans MS', 30)
 
 d_width = 1450
 d_height = 900 
@@ -26,9 +27,8 @@ clock = pygame.time.Clock()
 level = Level(level_map,screen)
 value_score = 0 
 
-
 def game():
-    my_font = pygame.font.SysFont('Comic Sans MS', 30)
+    
     # text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
     
     screen.fill('black')
@@ -81,7 +81,6 @@ while True:
             pygame.quit()
             sys.exit()
     if x == "game": 
-        my_font = pygame.font.SysFont('Comic Sans MS', 30)
         text_surface = my_font.render('This is just as correct...', False, (255, 255, 255))
         # score = my_font.render('Score: '+str(level.value_score), False, (255, 255, 255))
         

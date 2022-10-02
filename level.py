@@ -7,7 +7,7 @@ from collectible import Collectible
 from barrier import Barrier
 from end import End_Block 
 from telescope.p1 import PrimaryMirror
-from telescope.p2 import * 
+from telescope.p2 import SecondaryMirror
 from telescope.p3 import * 
 from telescope.p4 import * 
 from telescope.p5 import * 
@@ -76,10 +76,10 @@ class Level:
                     f_block = End_Block((x,y), tile_size)
                     self.final.add(f_block) # :D
                 if cell == "H":
-                    hana = PrimaryMirror((x,y), tile_size)
-                    self.primary.add(hana) # :D
+                    hana = PrimaryMirror((x,y))
+                    self.f.add(hana) # :D
                 if cell == "D": 
-                    dul = Collectible((x,y), tile_size)
+                    dul = SecondaryMirror((x,y), tile_size)
                     self.collectible.add(dul)
                 if cell == "S":
                     ses = Collectible((x,y), tile_size)
@@ -206,6 +206,8 @@ class Level:
 
     def run(self):
         #Casillas De Nivel
+        self.f.update(self.world_shift)
+        self.f.draw(self.display_surface)
         
         self.collectible.update(self.world_shift)
         self.collectible.draw(self.display_surface)
@@ -216,8 +218,7 @@ class Level:
         self.final.update(self.world_shift)
         self.final.draw(self.display_surface)
 
-        self.f.update(self.world_shift)
-        self.f.draw(self.display_surface)
+        
         self.scroll_x()
         #Jugador
         self.player.update()
