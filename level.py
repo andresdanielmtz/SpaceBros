@@ -20,12 +20,14 @@ def checkCollision():
         return True
     return False
 
+
 class Level:
     def __init__ (self,level_data,surface):
         #Setup de niveles
         self.display_surface = surface
         self.setup_level(level_data)
         self.world_shift = 0
+        self.value_score = 0
 
     def setup_level(self,layout):
         self.tiles = pygame.sprite.Group()
@@ -64,6 +66,11 @@ class Level:
             self.world_shift = 0
             player.speed = 8
 
+    async def add_points(self):
+        self.value_score += 1 
+        print(self.value_score)
+        await asyncio.sleep(2)
+        
     def horizontal(self):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
@@ -73,6 +80,7 @@ class Level:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
+        
         for sprite in self.collectible.sprites():
             if sprite.rect.colliderect(player.rect):
                 if player.direction.x < 0:
@@ -97,6 +105,7 @@ class Level:
                     player.rect.bottom = sprite.rect.top
                     player.direction.y = 0
                     print(":D")
+                    self.add_points()
                 elif player.direction.y < 0:
                     player.rect.top = sprite.rect.bottom
                     player.direction.y = 0
